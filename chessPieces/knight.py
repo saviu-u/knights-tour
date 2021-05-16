@@ -17,11 +17,16 @@ class Knight:
     self.historic.append(self.pos)
     self.pos = newPos
 
-  def possible_moves(self):
+  def rollback(self):
+    self.board.insert(*self.pos)
+    self.pos = self.historic.pop()
+    self.board.insert(*self.pos, self)
+
+  def possibleMoves(self):
     moves = []
     for movement in self.__class__.MOVEMENTS:
-      movement = [i + j for i,j in zip(movement, self.pos)]
-      if self.board.posExist(*movement): moves.append(movement)
+      position = [i + j for i,j in zip(movement, self.pos)]
+      if self.board.posAvailable(*position): moves.append(movement)
 
     return moves
 

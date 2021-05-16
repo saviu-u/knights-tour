@@ -43,6 +43,15 @@ class Board:
       if i < 0 or i >= self.__class__.BOARD_SIZE: return False
     return True
 
+  def allDone(self):
+    symbol = self.__class__.DEFAULT_EMPTY
+    for row in self.space:
+      for cell in row:
+        if cell == symbol: return False
+
+    return True
+
+
   # Private
 
   def __printRow(self):
