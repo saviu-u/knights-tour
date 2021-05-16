@@ -25,13 +25,13 @@ def search(knight, timer = None):
     move = moves.pop()
     knight.move(*move)
     display(knight.board, timer)
-    if knight.board.allDone() or search(knight): return knight.path()
+    if knight.board.allDone() or search(knight, timer): return knight.path()
     knight.rollback()
     display(knight.board, timer)
 
-def startSearch(size, x, y, timer = None):
+def startSearch(size, pos, timer = None):
   newBoard = Board(size)
-  newKnight = Knight(newBoard, x, y)
+  newKnight = Knight(newBoard, *pos)
 
   moves = search(newKnight, timer)
 

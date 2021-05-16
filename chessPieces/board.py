@@ -1,4 +1,5 @@
 from .knight import Knight
+import sys
 
 class Board:
   BOARD_SIZE = 8
@@ -21,8 +22,10 @@ class Board:
     for row in self.space:
       print(separator, end= '')
       for index, cell in enumerate(row):
-        if type(cell) == Knight: cell = cell.char()
+        cellClass = type(cell) == Knight
+        if cellClass: cell = cell.char()
         print(f' {str(cell).ljust(2, " ")} ', end= '')
+
         if index != lastIndex: print(separator, end= '')
       print(separator)
 

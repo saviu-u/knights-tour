@@ -4,7 +4,7 @@ import time
 def expectInteger(phrase, quantity, standard = None, condition = None):
   return expectNumber(phrase, quantity, standard, condition, int)
 
-def expectNumber(phrase, quantity, standard = None, condition = None, treat = len):
+def expectNumber(phrase, quantity, standard = None, condition = None, treat = float):
   while True:
     try:
       value = input(phrase + ": ")
@@ -44,7 +44,7 @@ while True:
 
   print()
 
-  startSearch(boardSize, *knightPos, timer)
+  startSearch(boardSize, knightPos, timer)
 
   print()
   if not expectInteger("Deseja tentar denovo (1 = Sim, 0 = Não) (Padrão: 0)", 1, 0): break
