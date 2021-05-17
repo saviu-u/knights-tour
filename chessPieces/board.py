@@ -21,6 +21,7 @@ class Board:
     self.size = size
     self.space = []
     self.color = color
+    self.adjustValue = len(str(size * size))
 
     for _ in range(size): self.space.append([self.__class__.DEFAULT_EMPTY] * size)
 
@@ -47,7 +48,7 @@ class Board:
           except KeyError:
             prefix = sufix = ''
 
-        print(prefix + f' {str(cell).ljust(2, " ")} ' + sufix, end= '')
+        print(prefix + f' {str(cell).ljust(self.adjustValue, " ")} ' + sufix, end= '')
 
         if index != lastIndex: print(separator, end= '')
       print(separator)
@@ -81,4 +82,4 @@ class Board:
   # Private
 
   def __printRow(self):
-    print('-' * (len(self.space) * 5 + 1))
+    print('-' * (len(self.space) * (3 + self.adjustValue) + 1))
