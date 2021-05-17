@@ -29,8 +29,8 @@ def search(knight, timer = None):
     knight.rollback()
     display(knight.board, timer)
 
-def startSearch(size, pos, timer = None):
-  newBoard = Board(size)
+def startSearch(size, pos, timer = 0, color = 0):
+  newBoard = Board(size, color = color)
   newKnight = Knight(newBoard, *pos)
 
   moves = search(newKnight, timer)

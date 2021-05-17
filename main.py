@@ -35,6 +35,9 @@ for nome in ["Savio Cangussu", "Francisco Roque", "Guilherme Fernandes", "Raphae
   print(" - ", nome)
 print("------------------------------")
 print()
+print("Primeiramente..")
+enableColor = expectInteger("O seu terminal aceita cores no STDOUT (1 = Sim, 0 = Não) (Padrão: 0)", 1, 0)
+print()
 
 while True:
   print("Defina;")
@@ -44,7 +47,7 @@ while True:
 
   print()
 
-  startSearch(boardSize, knightPos, timer)
+  startSearch(boardSize, knightPos, timer, enableColor)
 
   print()
   if not expectInteger("Deseja tentar denovo (1 = Sim, 0 = Não) (Padrão: 0)", 1, 0): break

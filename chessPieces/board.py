@@ -4,13 +4,23 @@ import sys
 class Board:
   BOARD_SIZE = 8
   SEPARATOR = '|'
-  DEFAULT_EMPTY = 0
+  DEFAULT_EMPTY = '0'
+  COLOR_DICT = {
+    "Knight": '\033[31;44m',
+    'X': '\033[30;42m',
+    '0': '\033[37;47m'
+  }
 
-  def __init__(self, size = None):
+  DEFAULT_COLOR = '\033[m'
+  DEFAULT_SPECIAL_PIECE_COLOR = '\033[31;47m'
+
+
+  def __init__(self, size = None, color = 0):
     if not size: size = self.__class__.BOARD_SIZE
 
     self.size = size
     self.space = []
+    self.color = color
 
     for _ in range(size): self.space.append([self.__class__.DEFAULT_EMPTY] * size)
 
@@ -19,13 +29,25 @@ class Board:
 
     separator = self.__class__.SEPARATOR
     lastIndex = self.size - 1
+    colorDict = self.__class__.COLOR_DICT
 
     for row in self.space:
       print(separator, end= '')
       for index, cell in enumerate(row):
         cellClass = type(cell) == Knight
+        keyColor = type(cell).__name__ if cellClass else cell
+        prefix = sufix = ''
+
         if cellClass: cell = cell.char()
-        print(f' {str(cell).ljust(2, " ")} ', end= '')
+
+        if self.color:
+          try:
+            prefix = colorDict[keyColor]
+            sufix = self.__class__.DEFAULT_COLOR
+          except KeyError:
+            prefix = sufix = ''
+
+        print(prefix + f' {str(cell).ljust(2, " ")} ' + sufix, end= '')
 
         if index != lastIndex: print(separator, end= '')
       print(separator)
