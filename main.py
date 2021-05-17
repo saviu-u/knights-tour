@@ -36,6 +36,7 @@ for nome in ["Savio Cangussu", "Francisco Roque", "Guilherme Fernandes", "Raphae
 print("------------------------------")
 print()
 print("Primeiramente..")
+print("O Comand Prompt do windows (CMD) NÃO aceita cor nativamente, sabendo disso;")
 enableColor = expectInteger("O seu terminal aceita cores no STDOUT (1 = Sim, 0 = Não) (Padrão: 0)", 1, 0)
 print()
 
