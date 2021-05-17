@@ -8,16 +8,17 @@ class Board:
 
   def __init__(self, size = None):
     if not size: size = self.__class__.BOARD_SIZE
-    empty = self.__class__.DEFAULT_EMPTY
 
+    self.size = size
     self.space = []
-    for _ in range(size): self.space.append([empty] * size)
+
+    for _ in range(size): self.space.append([self.__class__.DEFAULT_EMPTY] * size)
 
   def exibit(self):
     self.__printRow()
 
     separator = self.__class__.SEPARATOR
-    lastIndex = self.__class__.BOARD_SIZE - 1
+    lastIndex = self.size - 1
 
     for row in self.space:
       print(separator, end= '')
@@ -43,7 +44,7 @@ class Board:
 
   def posExist(self, x, y):
     for i in [x,y]:
-      if i < 0 or i >= self.__class__.BOARD_SIZE: return False
+      if i < 0 or i >= self.size: return False
     return True
 
   def allDone(self):
