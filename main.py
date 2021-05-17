@@ -29,6 +29,7 @@ print()
 print("TENHA CUIDADO")
 print("O programa não mede uso de CPU ou memória")
 print("Coloque valores altos por sua conta e risco")
+print("Valores altos podem resultar em um alto tempo de processamento")
 print("------------------------------")
 print("Grupo responsável pelo código: ")
 for nome in ["Savio Cangussu", "Francisco Roque", "Guilherme Fernandes", "Raphael Bassi", "Gabriel Quaquio"]:
@@ -42,7 +43,7 @@ print()
 
 while True:
   print("Defina;")
-  boardSize = expectInteger("Tamanho do tabuleiro (EX: 10) (Padrão: 8)", 1, 8)
+  boardSize = expectInteger("Tamanho do tabuleiro (EX: 5) (Padrão: 8)", 1, 8)
   knightPos = expectInteger("Posição inicial do cavalo (EX: 3 4) (Padrão: 0 0)", 2, [0, 0], lambda x: len([a for a in x if a >= 0 and a < boardSize]) == 2)
   timer = expectNumber("Tempo de intervalo para a observação do algoritimo em segundos (Digite 0 ou ENTER para nenhum)", 1, 0)
 
