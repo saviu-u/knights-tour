@@ -33,6 +33,19 @@ def startSearch(size, pos, timer = 0, color = 0):
   newBoard = Board(size, color = color)
   newKnight = Knight(newBoard, *pos)
 
+  print("Iniciando algoritimo de busca")
+  print("Heurísticas usadas: Regra de Warnsdorffs")
+  print("Variávies:")
+  print(f"- Tamanho do tabuleiro: {size} X {size}")
+  print(f"- Posição inicial do cavalo: {pos[0]}:{pos[1]}")
+  print(f"- Com tempo entre as jogas de {timer} segundos" if timer else "Sem visualização")
+  print()
+
+  if size >= 10: print("AVISO, Testes foram feitos com tabuleiros acima de tamanho 10 e a busca costuma demorar")
+  print("Iniciando em 3 segundos...:")
+  time.sleep(3)
+  print("Iniciado")
+
   moves = search(newKnight, timer)
 
   if not moves: return print("Não foi encontrado a solução")
