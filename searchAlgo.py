@@ -38,10 +38,12 @@ def startSearch(size, pos, timer = 0, color = 0):
   print("Variávies:")
   print(f"- Tamanho do tabuleiro: {size} X {size}")
   print(f"- Posição inicial do cavalo: {pos[0]}:{pos[1]}")
-  print(f"- Com tempo entre as jogas de {timer} segundos" if timer else "Sem visualização")
+  print(f"- Com tempo entre as jogas de {timer} segundos" if timer else "- Sem visualização")
   print()
 
-  if size >= 10: print("AVISO, Testes foram feitos com tabuleiros acima de tamanho 10 e a busca costuma demorar")
+  if size >= 10:
+    print("AVISO")
+    print("Testes foram feitos com tabuleiros acima de tamanho 11 e a busca costuma demorar")
   print("Iniciando em 3 segundos...:")
   time.sleep(3)
   print("Iniciado")
