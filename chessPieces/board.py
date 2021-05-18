@@ -26,14 +26,14 @@ class Board:
     for _ in range(size): self.space.append([self.__class__.DEFAULT_EMPTY] * size)
 
   def exibit(self):
-    self.__printRow()
-
     separator = self.__class__.SEPARATOR
     lastIndex = self.size - 1
     colorDict = self.__class__.COLOR_DICT
 
+    boardImage = self.__getStringRow()
+
     for row in self.space:
-      print(separator, end= '')
+      boardImage += separator
       for index, cell in enumerate(row):
         cellClass = type(cell) == Knight
         keyColor = type(cell).__name__ if cellClass else cell
@@ -48,12 +48,13 @@ class Board:
           except KeyError:
             prefix = sufix = ''
 
-        print(prefix + f' {str(cell).ljust(self.adjustValue, " ")} ' + sufix, end= '')
+        boardImage += prefix + f' {str(cell).ljust(self.adjustValue, " ")} ' + sufix
 
-        if index != lastIndex: print(separator, end= '')
-      print(separator)
+        if index != lastIndex: boardImage += separator
+      boardImage += separator + '\n'
 
-    self.__printRow()
+    boardImage += self.__getStringRow()
+    print(boardImage)
 
   def insert(self, x, y, inserted = None):
     if inserted == None: inserted = self.__class__.DEFAULT_EMPTY
@@ -81,5 +82,5 @@ class Board:
 
   # Private
 
-  def __printRow(self):
-    print('-' * (len(self.space) * (3 + self.adjustValue) + 1))
+  def __getStringRow(self):
+    return ('-' * (len(self.space) * (3 + self.adjustValue) + 1)) + '\n'
