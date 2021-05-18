@@ -6,7 +6,7 @@ import sys, math, time
 
 ALGORITHMS = [
   {
-    "name": "A regra de Warnsdorff",
+    "name": "A regra de Warnsdorff (Busca gulosa)",
     "description": [
         "Algoritimo definitivo com heurística impecável",
         "Busca sempre o movimento de menor grau (sendo o grau, os caminhos possíveis incluindo os já visitados)",
@@ -25,7 +25,7 @@ ALGORITHMS = [
     "method": "leastDegree"
   },
   {
-    "name": "Greedy-Search (Busca gulosa)",
+    "name": "Busca por profundidade (Busca cega)",
     "description": [
       "Procura a solução até ser encontrada por força bruta",
       "(Até mesmo o tabuleiro padrão pode demorar com esse algoritimo)"
